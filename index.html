@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href=stylesheet.css>
+</head>
+
+<body>
+  <input type="text" id="myInput">
+  <button id="butt" class="btn btn-primary">Add to shopping list (<span id="groceries"></span>)</button>
+  <table id="myTable">
+  </table>
+
+  <button class="btn btn-primary">Save</button>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
+  <script>
+    var button = document.getElementById("butt");
+    var icon = document.createElement("i");
+    icon.className = "fas fa-spinner fa-spin mr-2";
+    var input = document.getElementById("myInput");
+    var content = document.getElementById("content");
+
+
+    button.addEventListener("click", changeButt);
+    cross.addEventListener("click", deleteRow);
+
+    function changeButt() {
+      button.prepend(icon);
+
+      setTimeout(function() {
+        button.removeChild(icon);
+
+      }, 500);
+
+      setTimeout(function() {
+        if (input.value == "") {
+          alert("input field empty")
+        } else {
+          var table = document.getElementById("myTable");
+          var row = table.insertRow(0);
+          var cell = row.insertCell(0);
+          var cross = document.createElement("button");
+          cross.className = "fa fa-close";
+          cell.innerHTML = input.value + cross.outerHTML;
+          input.value = "";
+          groceries.innerHTML = table.rows.length;
+        }
+      }, 1000);
+    }
+
+/*  function deleteRow {
+   document.getElementById("myTable").deleteRow(0);
+ }*/
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+table td{
+  border: 1px solid black;
+  padding: 6px;
+  width: 30%;
+}
+.button {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: RoyalBlue;
+}
+
+.fa {
+text-align: right;
+}
